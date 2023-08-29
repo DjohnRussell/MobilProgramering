@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             HowIsGoingToTheme {
 
-                DiceRollerApp()
+                GoingToDo()
             }
 
         }
@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
 
     @Preview
     @Composable
-    fun DiceRollerApp() {
+    fun GoingToDo() {
         ButtonAndImage(
             modifier = Modifier
                 .fillMaxSize()
@@ -49,16 +49,36 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun ButtonAndImage(modifier: Modifier = Modifier) {
+
+        // Text for the rendom task mannager
+        var dinner = stringResource(R.string.how_is_going_to_cook_dinner)
+        var laundry = stringResource(R.string.how_is_doing_the_laundy)
+        var dishes = stringResource(R.string.how_is_doing_the_dishes)
+
+        //TODO må fikse denne slik at den git stringen og ikke resultetet!
+        var resultOfText by remember { mutableStateOf(1) }
+        val textResource = when (resultOfText) {
+            1 -> R.string.how_is_doing_the_dishes
+            2 -> R.string.how_is_doing_the_laundy
+
+            else -> R.string.how_is_going_to_cook_dinner
+        }
+
         var result by remember { mutableStateOf(1) }
         val imageResource = when (result) {
             1 -> R.drawable.daniel
 
             else -> R.drawable.sonia
+            
+            
         }
         Column(
             modifier = modifier,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(text = resultOfText.toString())
+            Spacer(modifier = Modifier.height(20.dp))
             Image(
                 painter = painterResource(imageResource),
                 contentDescription = result.toString()
