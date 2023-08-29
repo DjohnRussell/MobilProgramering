@@ -51,17 +51,15 @@ class MainActivity : ComponentActivity() {
     fun ButtonAndImage(modifier: Modifier = Modifier) {
 
         // Text for the rendom task mannager
-        var dinner = stringResource(R.string.how_is_going_to_cook_dinner)
-        var laundry = stringResource(R.string.how_is_doing_the_laundy)
-        var dishes = stringResource(R.string.how_is_doing_the_dishes)
 
-        //TODO må fikse denne slik at den git stringen og ikke resultetet!
+
+
         var resultOfText by remember { mutableStateOf(1) }
         val textResource = when (resultOfText) {
-            1 -> R.string.how_is_doing_the_dishes
-            2 -> R.string.how_is_doing_the_laundy
+            1 -> stringResource(id = R.string.dinner)
+            2 -> stringResource(id = R.string.dishes)
 
-            else -> R.string.how_is_going_to_cook_dinner
+            else -> stringResource(id = R.string.laundy)
         }
 
         var result by remember { mutableStateOf(1) }
@@ -77,15 +75,16 @@ class MainActivity : ComponentActivity() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(10.dp))
-            Text(text = resultOfText.toString())
+            Text(text = textResource.toString())
             Spacer(modifier = Modifier.height(20.dp))
             Image(
                 painter = painterResource(imageResource),
                 contentDescription = result.toString()
             )
             Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = { result = (1..2).random() }) {
+            Button(onClick = { resultOfText = (1 .. 3).random()}) {
                 Text(text = stringResource(id = R.string.roll))
+                result = (1..2).random() 
             }
         }
     }

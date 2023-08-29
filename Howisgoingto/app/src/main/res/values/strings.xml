@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">How is going to</string>
     <string name="roll">Roll</string>
-    <string name="how_is_going_to_cook_dinner">Dinner</string>
-    <string name="how_is_doing_the_laundy">Laundy</string>
-    <string name="how_is_doing_the_dishes">Dishes</string>
+    <string name="dinner">Who is going to cook dinner?</string>
+    <string name="laundy">Who is doing the laundry?</string>
+    <string name="dishes">Who is doing the dishes?</string>
 </resources>
