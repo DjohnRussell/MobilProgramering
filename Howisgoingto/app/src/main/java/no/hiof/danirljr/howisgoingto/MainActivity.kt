@@ -51,9 +51,6 @@ class MainActivity : ComponentActivity() {
     fun ButtonAndImage(modifier: Modifier = Modifier) {
 
         // Text for the rendom task mannager
-
-
-
         var resultOfText by remember { mutableStateOf(1) }
         val textResource = when (resultOfText) {
             1 -> stringResource(id = R.string.dinner)
@@ -65,10 +62,13 @@ class MainActivity : ComponentActivity() {
         var result by remember { mutableStateOf(1) }
         val imageResource = when (result) {
             1 -> R.drawable.daniel
+            3 -> R.drawable.daniel
+            5 -> R.drawable.daniel
+            2 -> R.drawable.sonia
+            4 -> R.drawable.sonia
 
-            else -> R.drawable.sonia
-            
-            
+            else ->  R.drawable.sonia
+
         }
         Column(
             modifier = modifier,
@@ -84,8 +84,10 @@ class MainActivity : ComponentActivity() {
             Spacer(modifier = Modifier.height(16.dp))
             Button(onClick = { resultOfText = (1 .. 3).random()}) {
                 Text(text = stringResource(id = R.string.roll))
-                result = (1..2).random() 
+                result = (1..6).random()
             }
         }
+
+
     }
 }
