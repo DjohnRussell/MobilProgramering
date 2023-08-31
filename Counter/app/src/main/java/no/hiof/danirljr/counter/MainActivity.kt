@@ -53,9 +53,10 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        Image(
-            painter = painterResource(R.drawable.minus),
-            contentDescription = "Angry birds")
+        CounyCheckNImageChange(checkNum = counter)
+
+        Spacer(modifier = Modifier
+            .height(30.dp))
 
         TextAndCountChecker(counter)
 
@@ -91,6 +92,24 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
 
 
 }
+
+@Composable
+fun CounyCheckNImageChange(checkNum : Int) {
+    val img = if (checkNum < 0)
+        Image(
+            painter = painterResource(R.drawable.minus),
+            contentDescription = "Angry birds")
+            else if (checkNum > 0)
+        Image(
+            painter = painterResource(R.drawable.pluss),
+            contentDescription = "Happy birds")
+            else
+        Image(
+            painter = painterResource(R.drawable.zero),
+            contentDescription = "nutral birds")
+        
+}
+
 @Composable
 fun TextAndCountChecker(number: Int) {
     val textColor = if (number < 0)
