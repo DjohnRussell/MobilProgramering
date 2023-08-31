@@ -24,8 +24,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import no.hiof.danirljr.counter.ui.theme.CounterTheme
 
 class MainActivity : ComponentActivity() {
@@ -121,6 +123,9 @@ fun TextAndCountChecker(number: Int) {
     Text(
         text = "Counter: $number",
         color = textColor,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold
+
 
     )
 }
