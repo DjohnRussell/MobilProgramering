@@ -22,9 +22,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import no.hiof.danirljr.counter.ui.theme.CounterTheme
@@ -54,9 +53,11 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
 
+        Image(
+            painter = painterResource(R.drawable.minus),
+            contentDescription = "Angry birds")
 
-
-        Text(text = "Counter: " + "$counter")
+        TextAndCountChecker(counter)
 
         Spacer(modifier = Modifier
             .height(30.dp))
@@ -89,6 +90,19 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
     }
 
 
+}
+@Composable
+fun TextAndCountChecker(number: Int) {
+    val textColor = if (number < 0)
+        Color.Red
+    else
+        Color.Black
+
+    Text(
+        text = "Counter: $number",
+        color = textColor,
+
+    )
 }
 
 
