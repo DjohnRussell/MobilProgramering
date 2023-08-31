@@ -53,7 +53,7 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        CounyCheckNImageChange(checkNum = counter)
+        CountCheckNImageChange(checkNum = counter)
 
         Spacer(modifier = Modifier
             .height(30.dp))
@@ -93,8 +93,9 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
 
 }
 
+
 @Composable
-fun CounyCheckNImageChange(checkNum : Int) {
+fun CountCheckNImageChange(checkNum : Int) {
     val img = if (checkNum < 0)
         Image(
             painter = painterResource(R.drawable.minus),
