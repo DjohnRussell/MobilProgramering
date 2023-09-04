@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -69,14 +68,14 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
         Row {
             Box(
                 modifier = modifier) {
-                Button(onClick = { counter ++ }
+                Button(onClick = { counter +=1 }
                     ) {
                     Text("+")
                 }
             }
             Box(
                 modifier = modifier) {
-                Button(onClick = { counter --}
+                Button(onClick = { counter -=1}
                 ) {
                     Text("-")
                 }
@@ -110,7 +109,7 @@ fun CountCheckNImageChange(checkNum : Int) {
             else
         Image(
             painter = painterResource(R.drawable.zero),
-            contentDescription = "nutral birds")
+            contentDescription = "neutral birds")
         
 }
 
@@ -126,8 +125,6 @@ fun TextAndCountChecker(number: Int) {
         color = textColor,
         fontSize = 20.sp,
         fontWeight = FontWeight.Bold
-
-
     )
 }
 
