@@ -84,19 +84,16 @@ fun SimpleList() {
         item {Text(text = "Superheros", fontSize = 32.sp)}
 
         items(superheros) { superhero ->
-            Row {
-
-                Icon(imageVector = superhero.icon, contentDescription = null)
-                Text(text = superhero.name )
-                Text(text = superhero.alterEgo)
-            }
+            SuperheroRow(superhero = superhero)
         }
         }
     }
 
 @Composable
 fun SuperheroRow(superhero: Superhero) {
-
+    Icon(imageVector = superhero.icon, contentDescription = null)
+    Text(text = superhero.name)
+    Text(text = superhero.alterEgo)
 }
 
 
