@@ -3,6 +3,7 @@ package no.hiof.danirljr.moviecollection
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -27,6 +29,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.ExperimentalTextApi
@@ -58,12 +61,14 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@OptIn(ExperimentalTextApi::class)
+
 @Composable
 fun MovieList() {
-    //TODO make the heart icon clickable and once clicked a movie it should be added to fav list desplyed in a row on top
 
-    
+
+
+
+
     val moviesList = listOf(
 
         Movie(painterResource(id = R.drawable.batman), "Batman",
@@ -89,9 +94,7 @@ fun MovieList() {
         LazyRow() {
             item { Text(modifier = Modifier, text = "Favorite´s", fontSize = 20.sp,
                 fontWeight = FontWeight.Light) }
-
         }
-
         Spacer(modifier = Modifier.height(16.dp))
 
         LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -141,6 +144,7 @@ fun MovieRow(movies: Movie) {
 
         IconHeart(isFavorite) {
             isFavorite = !isFavorite
+
 
         }
     }
