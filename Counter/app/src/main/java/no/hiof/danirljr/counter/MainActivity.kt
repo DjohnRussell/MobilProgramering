@@ -11,7 +11,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -70,14 +75,16 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
                 modifier = modifier) {
                 Button(onClick = { counter +=1 }
                     ) {
-                    Text("+")
+                    //Text("+")
+                    Icon(imageVector = Icons.Default.KeyboardArrowUp, contentDescription = "Increase" )
                 }
             }
             Box(
                 modifier = modifier) {
                 Button(onClick = { counter -=1}
                 ) {
-                    Text("-")
+                    //Text("-")
+                    Icon(imageVector = Icons.Default.KeyboardArrowDown, contentDescription = "Decrease" )
                 }
             }
 
@@ -86,7 +93,9 @@ fun ButtonIncreseDecrease( modifier: Modifier = Modifier) {
             modifier = modifier) {
             Button(onClick = { counter = 0 }
             ) {
-                Text("Reset")
+                //Text("Reset")
+                Icon(imageVector = Icons.Default.Refresh ,
+                    contentDescription = "Refresh")
             }
         }
 
