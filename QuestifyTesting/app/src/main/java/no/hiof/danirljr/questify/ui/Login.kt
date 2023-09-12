@@ -3,6 +3,7 @@ package no.hiof.danirljr.questify.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,25 +20,32 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import no.hiof.danirljr.questify.R
+import no.hiof.danirljr.questify.ui.model.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Login(logo : Painter, contentDescription: String, login: () -> Unit) {
     var password by remember { mutableStateOf("") }
+    var username by remember { mutableStateOf("") }
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
         Image(painter = logo, contentDescription =  contentDescription)
 
-        OutlinedTextField(value = "username" , onValueChange = {})
-        OutlinedTextField(value = password,
+        var userInputUsername = OutlinedTextField(value = username ,
+            onValueChange = {username = it})
+        var userInputPassword = OutlinedTextField(value = password,
             onValueChange = { password = it},
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
             )
 
-        Button(onClick = { login() }) {
+        var u1 = User(userInputUsername.toString(), userInputPassword.toString())
+
+
+        Button(onClick = { login()}) {
             Text(text = stringResource(R.string.login))
         }
+        Text(text = "Create Account", )
     }
 
 }
