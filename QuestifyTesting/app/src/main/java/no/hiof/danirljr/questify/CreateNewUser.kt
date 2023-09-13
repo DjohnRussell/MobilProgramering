@@ -40,17 +40,17 @@ fun CreateNewUser() {
             textAlign =  TextAlign.Center)
 
         Spacer(modifier = Modifier
-            .height(40.dp))
+            .height(20.dp))
 
         Row(modifier = Modifier
-            .padding(30.dp)) {
+            .padding(35.dp)) {
             Icon(imageVector = Icons.Default.Add, contentDescription = "add username" )
             var userEnterUsername by remember { mutableStateOf("") }
             OutlinedTextField(value = userEnterUsername, onValueChange = {userEnterUsername = it}, 
                 label = { Text(text = stringResource(R.string.username))})
         }
         Row(modifier = Modifier
-            .padding(30.dp)) {
+            .padding(35.dp)) {
             Icon(imageVector = Icons.Default.Add, contentDescription = "add password")
             var userEnterPassword by remember { mutableStateOf("") }
             OutlinedTextField(value = userEnterPassword, onValueChange = {userEnterPassword = it},
@@ -60,7 +60,7 @@ fun CreateNewUser() {
         }
             
         Row(modifier = Modifier
-            .padding(30.dp)) {
+            .padding(35.dp)) {
             Icon(imageVector = Icons.Default.Email, contentDescription = "Enter e-mail" )
             var Email by remember { mutableStateOf("") }
             OutlinedTextField(value = Email , onValueChange =  {Email = it}, 
