@@ -1,12 +1,11 @@
-package no.hiof.danirljr.questify.ui
+package no.hiof.danirljr.questify.ui.ui
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -19,11 +18,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import no.hiof.danirljr.questify.R
-import no.hiof.danirljr.questify.ui.model.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,8 +39,8 @@ fun Login(logo : Painter, contentDescription: String, login: () -> Unit, createA
         var userInputPassword = OutlinedTextField(value = password,
             onValueChange = { password = it},
             visualTransformation = PasswordVisualTransformation(),
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
-            )
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password))
+        
 
         //Denne skal gi brukernavn og passord til User, Men The User vil holde all info den skal arve
         //Brukernavn og passord fra User men ha sine engen instans variabler som avtar: Painter,
@@ -49,12 +48,23 @@ fun Login(logo : Painter, contentDescription: String, login: () -> Unit, createA
         //var u1 = User(userInputUsername.toString(), userInputPassword.toString())
 
 
-        Button(onClick = { login()}, modifier = Modifier
+        Button(
+            onClick = { login()},
+            colors = ButtonDefaults.buttonColors(
+                containerColor = colorResource(id = R.color.kotlin_pink) ),
+            modifier = Modifier
             ) {
-            Text(text = stringResource(R.string.login))
+            Text(
+                text = stringResource(R.string.login),
+            )
         }
-        Button(onClick = {createAccount()}) {
-            Text(text = "Create Account")
+        Button(
+            onClick = {createAccount()},
+            colors = ButtonDefaults.buttonColors(Color.Transparent)) {
+            Text(
+                text = stringResource(R.string.create_account),
+                color = Color.Black
+            )
 
         }
 

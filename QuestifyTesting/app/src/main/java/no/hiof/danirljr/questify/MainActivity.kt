@@ -15,8 +15,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import no.hiof.danirljr.questify.ui.Login
+import no.hiof.danirljr.questify.ui.ui.Login
 import no.hiof.danirljr.questify.ui.theme.QuestifyTheme
+import no.hiof.danirljr.questify.ui.ui.CreateNewUser
 import no.hiof.danirljr.questify.ui.ui.HomeScreen
 
 class MainActivity : ComponentActivity() {
@@ -68,7 +69,7 @@ class MainActivity : ComponentActivity() {
                     contentDescription = "logo", login ={ navController.navigate(AppScreens.Home.name)},
                     createAccount ={ navController.navigate(AppScreens.CreateNewUser.name)}) }
                 composable(AppScreens.Home.name) { HomeScreen() }
-                composable(AppScreens.CreateNewUser.name) { CreateNewUser()}
+                composable(AppScreens.CreateNewUser.name) { CreateNewUser() }
             }
         }
 

@@ -1,4 +1,4 @@
-package no.hiof.danirljr.questify
+package no.hiof.danirljr.questify.ui.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,6 +27,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import no.hiof.danirljr.questify.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -35,7 +36,7 @@ fun CreateNewUser() {
         horizontalAlignment = Alignment.CenterHorizontally ,
         ) {
 
-        Text(text = "New Profile",
+        Text(text = "New Account",
             style = MaterialTheme.typography.headlineLarge,
             textAlign =  TextAlign.Center)
 
@@ -63,10 +64,16 @@ fun CreateNewUser() {
             .padding(35.dp)) {
             Icon(imageVector = Icons.Default.Email, contentDescription = "Enter e-mail" )
             var Email by remember { mutableStateOf("") }
-            OutlinedTextField(value = Email , onValueChange =  {Email = it}, 
+            OutlinedTextField(value = Email , onValueChange =  {Email = it},
                 label = { Text(text = stringResource(R.string.email))})
             
         }
+        
+
+
+
+
+
             
         
     }
