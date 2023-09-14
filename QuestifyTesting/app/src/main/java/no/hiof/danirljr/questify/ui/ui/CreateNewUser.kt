@@ -68,13 +68,15 @@ fun CreateNewUser() {
                 label = { Text(text = stringResource(R.string.email))})
             
         }
-        
 
+        Row(modifier = Modifier
+            .padding(35.dp)) {
+            Icon(imageVector = Icons.Default.Email, contentDescription = "Enter e-mail" )
+            var ConfirmEmail by remember { mutableStateOf("") }
+            OutlinedTextField(value = ConfirmEmail , onValueChange =  {ConfirmEmail = it},
+                label = { Text(text = stringResource(R.string.confirm_email))})
 
-
-
-
-            
+        }
         
     }
 }

@@ -19,6 +19,7 @@ import no.hiof.danirljr.questify.ui.ui.Login
 import no.hiof.danirljr.questify.ui.theme.QuestifyTheme
 import no.hiof.danirljr.questify.ui.ui.CreateNewUser
 import no.hiof.danirljr.questify.ui.ui.HomeScreen
+import no.hiof.danirljr.questify.ui.ui.StoryScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,18 +46,14 @@ class MainActivity : ComponentActivity() {
     enum class AppScreens {
         Login,
         Home,
-        CreateNewUser
+        CreateNewUser,
+        StoryScreen
     }
-
-
-
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun NavigationApp() {
         val navController = rememberNavController()
-
-
 
 
         Scaffold(topBar = {
@@ -67,9 +64,12 @@ class MainActivity : ComponentActivity() {
                 Modifier.padding(innerPadding)) {
                 composable(AppScreens.Login.name) { Login(logo = painterResource(id = R.drawable.questify),
                     contentDescription = "logo", login ={ navController.navigate(AppScreens.Home.name)},
-                    createAccount ={ navController.navigate(AppScreens.CreateNewUser.name)}) }
+                    storyScreen ={ navController.navigate(AppScreens.StoryScreen.name)}) }
                 composable(AppScreens.Home.name) { HomeScreen() }
                 composable(AppScreens.CreateNewUser.name) { CreateNewUser() }
+                composable(AppScreens.StoryScreen.name) { StoryScreen(
+                    createNewUser = {navController.navigate(AppScreens.CreateNewUser.name)},
+                    login = {navController.navigate(AppScreens.Login.name)})}
             }
         }
 

@@ -1,5 +1,7 @@
 package no.hiof.danirljr.questify.ui.ui
 
+import android.content.Context
+import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,9 +26,15 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import no.hiof.danirljr.questify.R
 
+//Sword-slash sound for login button ?
+@Composable
+fun PlaySound(context: Context) {
+    val mp : MediaPlayer = MediaPlayer.create(context, R.raw.sword_slash)
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Login(logo : Painter, contentDescription: String, login: () -> Unit, createAccount: () -> Unit) {
+fun Login(logo : Painter, contentDescription: String, login: () -> Unit, storyScreen: () -> Unit) {
     var password by remember { mutableStateOf("") }
     var username by remember { mutableStateOf("") }
     Column(verticalArrangement = Arrangement.Center,
@@ -40,26 +48,22 @@ fun Login(logo : Painter, contentDescription: String, login: () -> Unit, createA
             onValueChange = { password = it},
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password))
-        
-
-        //Denne skal gi brukernavn og passord til User, Men The User vil holde all info den skal arve
-        //Brukernavn og passord fra User men ha sine engen instans variabler som avtar: Painter,
-        //xp: Int, hp: Int, gold: Int, goldPicture: Painter
-        //var u1 = User(userInputUsername.toString(), userInputPassword.toString())
 
 
         Button(
             onClick = { login()},
             colors = ButtonDefaults.buttonColors(
-                containerColor = colorResource(id = R.color.kotlin_pink) ),
+            containerColor = colorResource(id = R.color.kotlin_pink) ),
             modifier = Modifier
+
             ) {
             Text(
                 text = stringResource(R.string.login),
+
             )
         }
         Button(
-            onClick = {createAccount()},
+            onClick = {storyScreen()},
             colors = ButtonDefaults.buttonColors(Color.Transparent)) {
             Text(
                 text = stringResource(R.string.create_account),
@@ -69,6 +73,9 @@ fun Login(logo : Painter, contentDescription: String, login: () -> Unit, createA
         }
 
         }
+
+
+
 }
 
 
