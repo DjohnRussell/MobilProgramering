@@ -33,10 +33,12 @@ fun StoryScreen(createNewUser: () -> Unit, login : () -> Unit) {
 
 
         Text(text =
-        "In the magical land of Elmvale, a small elf" +
-                "named WimWim faced a colossal threat" +
-                "– a monstrous octopus terrorizing their" +
-                " peaceful land. WimWim couldn't defeat it alone." +
+                " In the magical land of" +
+                " Elmvale, a small elf" +
+                " named WimWim faced a" +
+                " colossal threat" +
+                " – a monstrous octopus terrorizing their" +
+                "peaceful land. WimWim couldn't defeat it alone." +
                 " You, a hero from one of the three races " +
                 "- Witches and Wizards, Warriors, or Forest People," +
                 " were chosen to join WimWim's quest." +

@@ -8,9 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    //-------Kotlin logo colors--------------
+    //----------Kotlin logo colors--------------
     <color name="kotlin_orage">#F38B1F</color>
     <color name="kotlin_pink">#C855AF</color>
     <color name="kotlin_blue">#3AC6FE</color>
     <color name="kotlin_purple">#9551FE</color>
+    //------------------------------------------
+
 </resources>

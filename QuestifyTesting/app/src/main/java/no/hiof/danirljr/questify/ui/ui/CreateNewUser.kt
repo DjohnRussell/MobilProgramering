@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -77,6 +79,10 @@ fun CreateNewUser() {
                 label = { Text(text = stringResource(R.string.confirm_email))})
 
         }
-        
+
+        Button(onClick = { /*TODO*/ }) {
+            Icon(imageVector = Icons.Default.Done, contentDescription = "Done" )
+        }
+
     }
 }
