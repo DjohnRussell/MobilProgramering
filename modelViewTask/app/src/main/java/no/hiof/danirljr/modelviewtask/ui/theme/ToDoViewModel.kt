@@ -3,28 +3,31 @@ package no.hiof.danirljr.modelviewtask.ui.theme
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 
-class ToDoViewModel : ViewModel(){
-    private var _uiState = MutableStateFlow( listOf(String()))
-    val uiState = _uiState.asStateFlow()
+class ToDoViewModel : ViewModel() {
+    private val _toDoList = MutableStateFlow(emptyList<String>())
+    val toDoList: StateFlow<List<String>> = _toDoList
 
-
-    val toDoList = mutableSetOf<String>(
-
-    )
 
 
     fun addTask(task: String) {
-        toDoList.add(task.toString())
+        val updatedList = _toDoList.value.toMutableList()
+        updatedList.add(task)
+        _toDoList.value = updatedList
     }
 
-    fun removeTask(removeTask : String) {
-        toDoList.remove(removeTask)
+    fun removeTask(task: String) {
+        val updatedList = _toDoList.value.toMutableList()
+        updatedList.remove(task)
+        _toDoList.value = updatedList
     }
-
-
 }
+
+
+
+
+
+
 
 
 
