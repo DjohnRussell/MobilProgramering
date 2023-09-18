@@ -53,7 +53,7 @@ fun Login(logo : Painter, contentDescription: String, login: () -> Unit, storySc
         Button(
             onClick = { login()},
             colors = ButtonDefaults.buttonColors(
-            containerColor = colorResource(id = R.color.kotlin_pink) ),
+            containerColor = colorResource(id = R.color.kotlin_purple) ),
             modifier = Modifier
 
             ) {

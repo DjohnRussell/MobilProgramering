@@ -2,6 +2,7 @@ package no.hiof.danirljr.modelviewtask.ui.theme
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class ToDoViewModel : ViewModel(){
@@ -9,16 +10,13 @@ class ToDoViewModel : ViewModel(){
     val uiState = _uiState.asStateFlow()
 
 
-    var toDoList = mutableSetOf<String>(
+    val toDoList = mutableSetOf<String>(
 
     )
 
-    fun markTaskAsDone() {
 
-    }
-
-    fun addTask(taskToDo : String) {
-        toDoList.add(taskToDo)
+    fun addTask(task: String) {
+        toDoList.add(task.toString())
     }
 
     fun removeTask(removeTask : String) {
@@ -27,5 +25,7 @@ class ToDoViewModel : ViewModel(){
 
 
 }
+
+
 
 

@@ -3,8 +3,10 @@ package no.hiof.danirljr.modelviewtask.ui.theme.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
@@ -22,12 +24,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import no.hiof.danirljr.modelviewtask.ui.theme.ToDoViewModel
-import kotlin.reflect.KProperty
+import no.hiof.danirljr.modelviewtask.ui.theme.ToDoViewModel as ToDoViewMo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ToDoList(viewModel: ToDoViewModel) {
+fun ToDoList(viewModel: ToDoViewMo) {
 
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
@@ -44,6 +47,7 @@ fun ToDoList(viewModel: ToDoViewModel) {
 
         Row {
             Button(onClick = { viewModel.addTask(Task)}) {
+
                 Icon(
                     imageVector = Icons.Default.Add,
                     contentDescription = "Add element"
@@ -54,19 +58,36 @@ fun ToDoList(viewModel: ToDoViewModel) {
                     imageVector = Icons.Default.Delete ,
                     contentDescription = "Remove element",)
             }
-
-
         }
 
+        Spacer(modifier = Modifier.padding(20.dp))
 
 
+        LazyColumn {
+            items(viewModel.toDoList.toList()) { task ->
+                Text(text = task,
+                    style = MaterialTheme.typography.bodyMedium)
+            }
+        }
+        }
 
     }
 
 
 
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
