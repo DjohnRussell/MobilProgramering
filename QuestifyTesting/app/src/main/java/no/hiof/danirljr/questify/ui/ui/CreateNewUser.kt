@@ -33,7 +33,7 @@ import no.hiof.danirljr.questify.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CreateNewUser() {
+fun CreateNewUser(home: () -> Unit) {
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally ,
         ) {
@@ -80,7 +80,7 @@ fun CreateNewUser() {
 
         }
 
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { home() }) {
             Icon(imageVector = Icons.Default.Done, contentDescription = "Done" )
         }
 

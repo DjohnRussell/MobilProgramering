@@ -62,11 +62,16 @@ class MainActivity : ComponentActivity() {
             NavHost(navController = navController,
                 startDestination = AppScreens.Login.name,
                 Modifier.padding(innerPadding)) {
+
                 composable(AppScreens.Login.name) { Login(logo = painterResource(id = R.drawable.questify),
                     contentDescription = "logo", login ={ navController.navigate(AppScreens.Home.name)},
                     storyScreen ={ navController.navigate(AppScreens.StoryScreen.name)}) }
+
                 composable(AppScreens.Home.name) { HomeScreen() }
-                composable(AppScreens.CreateNewUser.name) { CreateNewUser() }
+
+                composable(AppScreens.CreateNewUser.name) { CreateNewUser(home =
+                {navController.navigate(AppScreens.Home.name)}) }
+
                 composable(AppScreens.StoryScreen.name) { StoryScreen(
                     createNewUser = {navController.navigate(AppScreens.CreateNewUser.name)},
                     login = {navController.navigate(AppScreens.Login.name)})}
